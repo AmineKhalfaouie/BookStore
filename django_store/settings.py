@@ -113,6 +113,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+MEDIA_URL = '/media/' #MEDIA_URL: This is the URL prefix where media files will be served from. In this case, it's set to /media/. So, if you have a file named example.jpg in your MEDIA_ROOT directory, it would be accessible at http://yourdomain.com/media/example.jpg.
+MEDIA_ROOT = '/media'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
