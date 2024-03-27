@@ -5,87 +5,31 @@
 
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide">
+          {% for slide in slides %}
+            <div class="swiper-slide">
             <div class="container pt-5">
               <div class="row">
                 <div class="col-md-4 text-center d-none d-lg-block">
                   <img
-                    src="https://via.placeholder.com/300"
-                    alt="..."
+                    src="{{ slide.image.url }}"
+                    alt="{{ slide.title }}"
                     class="img-fluid rounded"
                   />
                 </div>
                 <div class="col-md-8">
                   <h1 class="text-secondary">
-                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم
+                    {{ slide.title }}
                   </h1>
                   <blockquote class="blockquote mt-4">
                     <p class="text-muted">
-                      هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن
-                      الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو
-                      الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم
-                      إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو
-                      عبارات محرجة أو غير لائقة مخبأة في هذا النص
+                      {{ slide.subtitle }}
                     </p>
                   </blockquote>
                 </div>
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="container pt-5">
-              <div class="row">
-                <div class="col-md-4 text-center d-none d-lg-block">
-                  <img
-                    src="https://via.placeholder.com/300"
-                    alt="..."
-                    class="img-fluid rounded"
-                  />
-                </div>
-                <div class="col-md-8">
-                  <h1 class="text-secondary">
-                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم
-                  </h1>
-                  <blockquote class="blockquote mt-4">
-                    <p class="text-muted">
-                      هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن
-                      الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو
-                      الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم
-                      إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو
-                      عبارات محرجة أو غير لائقة مخبأة في هذا النص
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="container pt-5">
-              <div class="row">
-                <div class="col-md-4 text-center d-none d-lg-block">
-                  <img
-                    src="https://via.placeholder.com/300"
-                    alt="..."
-                    class="img-fluid rounded"
-                  />
-                </div>
-                <div class="col-md-8">
-                  <h1 class="text-secondary">
-                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم
-                  </h1>
-                  <blockquote class="blockquote mt-4">
-                    <p class="text-muted">
-                      هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن
-                      الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو
-                      الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم
-                      إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو
-                      عبارات محرجة أو غير لائقة مخبأة في هذا النص
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <!-- If we need scrollbar -->
         <!-- <div class="swiper-scrollbar"></div> -->
