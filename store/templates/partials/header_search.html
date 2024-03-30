@@ -1,22 +1,26 @@
 {% load i18n %}
 
-<form class="d-flex mx-auto">
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                style="width: 400px"
-                placeholder="{% trans 'search' %}"
-              />
-              <select class="form-control" style="width: 160px">
-                <option>التصنيفات</option>
-                <option>التصنيفات</option>
-                <option>التصنيفات</option>
-                <option>التصنيفات</option>
-                <option>التصنيفات</option>
-              </select>
-              <button class="btn btn-primary" type="button">
-                <i class="lni lni-search-alt text-white"></i>
-              </button>
-            </div>
-          </form>
+<form action="{% url 'store.category' %}" class="d-flex mx-auto">
+    <div class="input-group">
+        <input type="text"
+               name="query"
+               class="form-control"
+               style="width: 400px"
+               placeholder="{% trans 'search' %}"
+               value="{{ request.GET.query }}"
+        />
+        <select class="form-control" style="width: 160px" name="category">
+            <option value="">{% trans 'All Categories' %}</option>
+            {% for category in categories %}
+                <option
+                        value="{{ category.id }}"
+                        {% if category.id|stringformat:'i' == request.GET.category %} selected {% endif %}
+                >{{ category.name }}
+                </option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" type="submit">
+            <i class="lni lni-search-alt text-white"></i>
+        </button>
+    </div>
+</form>

@@ -15,10 +15,18 @@ def product(request, pid):
     return render(request, 'product.html')
 def category(request, cid=None):
     cat = None
+
+    query = request.GET.get('query')
+    cid = request.GET.get('category', cid)
+
     where = {}
     if cid:
         cat = Category.objects.get(pk=cid)
         where['category_id'] = cid
+
+    if query:
+        where['name__icontains'] = query
+
     products = Product.objects.filter(**where)
     paginator = Paginator(products, 9)
     page_number = request.GET.get('page')
