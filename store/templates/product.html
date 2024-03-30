@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n my_filters %}
 
 {% block content %}
     <div class="container my-5">
@@ -10,9 +11,9 @@
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <img
-                        src="https://via.placeholder.com/300"
+                        src="{{ product.image.url }}"
                         class="img-fluid"
-                        alt="..."
+                        alt="{{ product.name }}"
                       />
                     </div>
                   </div>
@@ -20,22 +21,19 @@
               </div>
               <div class="col-md-9">
                 <div class="card-body">
-                  <h5 class="card-title">أساسيات تصميم الرسوميات</h5>
+                  <h5 class="card-title">{{ product.name }}</h5>
                   <p class="card-text mt-4">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                    توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل
-                    هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
-                    الحروف التى يولدها التطبيق.
+                    {{ product.short_description }}
                   </p>
                   <p class="card-text fs-4">
-                    <strong class="text-success mt-3"> 10,0 $ </strong>
+                    <strong class="text-success mt-3">{{ product.price }}</strong>
                   </p>
                   <button
                     class="btn btn-secondary"
                     data-url="/cart/add/1"
                     onclick="cartUpdate(this)"
                   >
-                    إضافة إلى السلة
+                    {% trans 'Add to Cart' %}
                   </button>
                 </div>
               </div>
@@ -61,7 +59,7 @@
                     aria-controls="pills-home"
                     aria-selected="true"
                   >
-                    الوصف
+                   {% trans 'Description' %}
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -75,7 +73,7 @@
                     aria-controls="pills-profile"
                     aria-selected="false"
                   >
-                    الكاتب
+                    {% trans 'Author' %}
                   </button>
                 </li>
               </ul>
@@ -89,28 +87,7 @@
                   aria-labelledby="pills-home-tab"
                 >
                   <p class="fs-6 text-muted">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                    توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل
-                    هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
-                    الحروف التى يولدها التطبيق.
-                  </p>
-                  <p class="fs-6 text-muted">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                    توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل
-                    هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
-                    الحروف التى يولدها التطبيق.
-                  </p>
-                  <p class="fs-6 text-muted">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                    توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل
-                    هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
-                    الحروف التى يولدها التطبيق.
-                  </p>
-                  <p class="fs-6 text-muted">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                    توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل
-                    هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
-                    الحروف التى يولدها التطبيق.
+                    {{ product.description }}
                   </p>
                 </div>
                 <div
@@ -119,12 +96,9 @@
                   role="tabpanel"
                   aria-labelledby="pills-contact-tab"
                 >
-                  <p class="fs-6 text-muted">اسم الكاتب</p>
+                  <p class="fs-6 text-muted">{{ product.author.name }}</p>
                   <p class="fs-6 text-muted">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                    توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل
-                    هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
-                    الحروف التى يولدها التطبيق.
+                    {{ product.author.bio}}
                   </p>
                 </div>
               </div>

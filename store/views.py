@@ -12,7 +12,10 @@ def index(request):
     })
 
 def product(request, pid):
-    return render(request, 'product.html')
+    product = Product.objects.get(pk=pid)
+    return render(request, 'product.html', {
+        'product': product
+    })
 def category(request, cid=None):
     cat = None
 
