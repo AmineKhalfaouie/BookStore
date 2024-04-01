@@ -6,7 +6,7 @@ async function cartUpdate(e) {
         dismissible: true,
         icon: false
     })
-    document.getElementById('cart-items-count').innerHtml = items_count
+    document.getElementById('cart-items-count').innerHTML = items_count
 }
 
 async function cartRemove(e) {

@@ -22,7 +22,7 @@
           <ul class="navbar-nav my-2 my-lg-0">
             <li class="nav-item">
               <a href="{% url 'store.cart' %}" class="btn btn-outline-dark" type="button">
-                <span id="cart-items-count">({{ cart_products|length }})</span>{% trans 'cart' %}
+                (<span id="cart-items-count">{{ cart_products|length }}</span>){% trans 'cart' %}
               </a>
             </li>
           </ul>
