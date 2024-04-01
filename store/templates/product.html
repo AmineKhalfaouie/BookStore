@@ -30,7 +30,7 @@
                   </p>
                   <button
                     class="btn btn-secondary"
-                    data-url="/cart/add/1"
+                    data-url="{% url 'store.cart_add' product.id %}"
                     onclick="cartUpdate(this)"
                   >
                     {% trans 'Add to Cart' %}

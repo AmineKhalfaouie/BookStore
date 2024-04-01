@@ -6,7 +6,7 @@
          class="card-img-top"
          alt="{{ product.name }}"/>
     <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
-        <a class="btn btn-outline-light" href="product.html">{% trans 'Add To Cart' %}</a>
+        <a class="btn btn-outline-light" data-url="{% url 'store.cart_add' product.id %}" onclick="cartUpdate(this)">{% trans 'Add To Cart' %}</a>
         <a class="btn btn-outline-light mt-2" href="{% url 'store.product' product.id %}">{% trans 'View' %}</a>
     </div>
     <div class="card-body">
