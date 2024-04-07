@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.sessions.models import Session
+from django_store import settings
 
 # Create your models here.
 
@@ -22,6 +23,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     short_description = models.CharField(max_length=255)
     description = models.TextField()
+    pdf_file = models.FileField(null=True)
     image = models.ImageField()
     price = models.FloatField()
     featured = models.BooleanField(default=False)
@@ -29,6 +31,9 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
+    @property
+    def pdf_file_url(self):
+        return settings.SITE_URL + self.pdf_file.url
     def __str__(self):
         return self.name
 class Order(models.Model):
@@ -36,6 +41,9 @@ class Order(models.Model):
     total = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    @property
+    def customer_name(self):
+        return self.customer['first_name'] + ' ' + self.customer['last_name']
     def __str__(self):
         return self.id
 class OrderProduct(models.Model):
